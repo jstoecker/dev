@@ -8,4 +8,5 @@
 	co = checkout
 	ci = commit
 	st = status --short --branch
-	hist = log --date=format:\"%x %X%z\" --pretty=format:\"%C(bold)%C(yellow)[%cd] %H %C(green)%ce\n%s\n\"
+	hist = log --date=format:\"%x %X\" --pretty=format:\"[%C(blue)%cd%C(reset)]%C(bold) %C(yellow)%h %C(green)%ce%C(reset): %s\"
+	unstage = reset HEAD
