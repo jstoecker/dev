@@ -17,10 +17,9 @@ $Extensions = 'zhuangtongfa.Material-theme',
     'twxs.cmake',
     'ms-vscode.cpptools',
     'ms-vscode.PowerShell',
-    'ms-vscode.sublime-keybindings'
+    'ms-vscode.sublime-keybindings',
+    'eamodio.gitlens'
 
 $Extensions | ForEach-Object { code --install-extension $_ }
 
-# Global configuration.
-# Copy-Item "$PSScriptRoot\.gitconfig" "$env:USERPROFILE\.gitconfig"
-# git config --global --edit
+Copy-Item "$PSScriptRoot\settings.json" "$env:APPDATA\Code\User\settings.json"
