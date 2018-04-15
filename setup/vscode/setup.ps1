@@ -1,25 +1,16 @@
-# Download VSCode installer.
-$SetupPath = "$env:USERPROFILE\Downloads\VSCodeSetup-x64.exe"
-if (!(Test-Path $SetupPath))
-{
-    Write-Host "- Downloading VSCode to $SetupPath"
-    [Net.WebClient]::new().DownloadFile('https://go.microsoft.com/fwlink/?Linkid=852157', $SetupPath)
-}
-
-# Run VSCode setup, and refresh the PATH once it finishes.
-Write-Host "- Running VSCode setup"
-Start-Process $SetupPath -Wait
+# Install VSCode.
+choco install visualstudiocode --confirm --params "/NoDesktopIcon"
 $env:PATH = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine') + ';' + 
     [System.Environment]::GetEnvironmentVariable('PATH', 'User')
 
 # Install extensions.
-$Extensions = 'zhuangtongfa.Material-theme',
-    'twxs.cmake',
-    'ms-vscode.cpptools',
-    'ms-vscode.PowerShell',
-    'ms-vscode.sublime-keybindings',
-    'eamodio.gitlens'
+'ms-vscode.cpptools',
+'ms-vscode.PowerShell',
+'ms-vscode.sublime-keybindings',
+'zhuangtongfa.Material-theme',
+'twxs.cmake',
+'eamodio.gitlens' | 
+ForEach-Object { code --install-extension $_ }
 
-$Extensions | ForEach-Object { code --install-extension $_ }
-
+# Copy default user settings.json.
 Copy-Item "$PSScriptRoot\settings.json" "$env:APPDATA\Code\User\settings.json"
