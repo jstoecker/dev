@@ -254,6 +254,12 @@ $ConsoleColors.SaveRegistryValues()
 $ConsoleColors.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk")
 
 if (!(Get-Module PSColor))
-{
-    Install-Module PSColor
+{   
+    $PSColorZip = "$env:USERPROFILE\Downloads\PSColor.zip"
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    [Net.WebClient]::new().DownloadFile("https://github.com/Davlind/PSColor/raw/master/release/PSColor.zip", $PSColorZip)
+    $Destination = Join-Path @($env:PSModulePath.Split(';'))[0] "PSColor"
+    Expand-Archive $PSColorZip $Destination -Force
 }
+
+Copy-Item "$PSScriptRoot\Microsoft.PowerShell_profile.ps1" $profile -Force
