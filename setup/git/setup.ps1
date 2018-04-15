@@ -1,8 +1,5 @@
 # Get link to the latest version of Git.
-$DownloadUrl = Invoke-WebRequest 'https://git-scm.com/download/win' |
-    Select-Object -ExpandProperty Links |
-    Where-Object { $_.innerHTML -match '64-bit Git for Windows Setup' } |
-    Select-Object -ExpandProperty href
+$DownloadUrl = ((Invoke-WebRequest 'https://git-scm.com/download/win' -UseBasicParsing).Links -match '64-bit.exe').href
 
 # Download Git.
 $GitSetupPath = "$env:USERPROFILE\Downloads\$($DownloadUrl | Split-Path -Leaf)"
