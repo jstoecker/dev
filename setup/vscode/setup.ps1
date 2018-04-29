@@ -1,6 +1,6 @@
 # Install VSCode.
 choco install visualstudiocode --confirm --params "/NoDesktopIcon"
-$env:PATH = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine') + ';' + 
+$env:PATH = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine') + ';' +
     [System.Environment]::GetEnvironmentVariable('PATH', 'User')
 
 # Install extensions.
@@ -9,8 +9,8 @@ $env:PATH = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine') + ';
 'ms-vscode.sublime-keybindings',
 'zhuangtongfa.Material-theme',
 'twxs.cmake',
-'eamodio.gitlens' | 
+'eamodio.gitlens' |
 ForEach-Object { code --install-extension $_ }
 
-# Copy default user settings.json.
-Copy-Item "$PSScriptRoot\settings.json" "$env:APPDATA\Code\User\settings.json"
+# Copy settings.json.
+& "$PSScriptRoot\setup_settings.ps1"
