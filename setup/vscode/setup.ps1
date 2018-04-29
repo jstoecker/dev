@@ -1,3 +1,5 @@
+
+
 # Install VSCode.
 choco install visualstudiocode --confirm --params "/NoDesktopIcon"
 $env:PATH = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine') + ';' +
@@ -9,7 +11,8 @@ $env:PATH = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine') + ';
 'ms-vscode.sublime-keybindings',
 'zhuangtongfa.Material-theme',
 'twxs.cmake',
-'eamodio.gitlens' |
+'eamodio.gitlens',
+'yzhang.markdown-all-in-one' |
 ForEach-Object { code --install-extension $_ }
 
 # Copy settings.json.
