@@ -13,4 +13,4 @@ $env:PATH = [System.Environment]::GetEnvironmentVariable('PATH', 'Machine') + ';
 ForEach-Object { code --install-extension $_ }
 
 # Copy settings.json.
-& "$PSScriptRoot\setup_settings.ps1"
+& "$PSScriptRoot\update_settings.ps1"
