@@ -8,7 +8,7 @@
 	co = checkout
 	ci = commit
 	st = status --short --branch
-	hist = log --date=format:\"%x %X\" --pretty=format:\"[%C(blue)%cd%C(reset)]%C(bold) %C(yellow)%h %C(red)%d %C(green)%ce%C(reset): %s\"
-	top = log --date=format:\"%x %X\" --pretty=format:\"[%C(blue)%cd%C(reset)]%C(bold) %C(yellow)%h %C(red)%d %C(green)%ce%C(reset): %s\" -5
+	hist = log --date=format:\"%x %X\" --pretty=format:\"[%C(bold)%C(cyan)%cd%C(reset)]%C(bold) %C(yellow)%h%C(red)%d %C(green)%ce%C(reset): %s\"
+	top = log --date=format:\"%x %X\" --pretty=format:\"[%C(bold)%C(cyan)%cd%C(reset)]%C(bold) %C(yellow)%h%C(red)%d %C(green)%ce%C(reset): %s\" -5
 	unstage = reset HEAD
 	discard = checkout --
