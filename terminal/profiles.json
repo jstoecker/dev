@@ -1,0 +1,90 @@
+
+// To view the default settings, hold "alt" while clicking on the "Settings" button.
+// For documentation on these settings, see: https://aka.ms/terminal-documentation
+
+{
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+
+    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+
+    "profiles":
+    [
+        {
+            // Make changes here to the powershell.exe profile
+            "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+            "name": "PowerShell",
+            "commandline": "powershell.exe -NoLogo",
+            "hidden": false,
+            "colorScheme": "Glacier",
+            "fontFace": "Cascadia Code",
+            "useAcrylic": true,
+            "acrylicOpacity": 0.8,
+            "tabTitle": "PowerShell"
+        },
+        {
+            "guid": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
+            "hidden": false,
+            "name": "Ubuntu-18.04",
+            "source": "Windows.Terminal.Wsl",
+            "colorScheme": "Glacier",
+            "fontFace": "Cascadia Code",
+            "useAcrylic": true,
+            "acrylicOpacity": 0.8
+        },
+        {
+            "guid": "{45c100e2-2637-4eef-8634-a2fb4c003697}",
+            "name": "Miniconda",
+            "hidden": true,
+            "icon": "<path_to_miniconda>/Menu/Iconleak-Atrous-PSConsole.ico",
+            "commandline": "powershell.exe -Command \"& '<path_to_miniconda>/shell/condabin/conda-hook.ps1'",
+            "colorScheme": "Glacier",
+            "fontFace": "Cascadia Code"
+        },
+        {
+            "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+            "name": "Command Prompt",
+            "commandline": "cmd.exe",
+            "hidden": false
+        },
+        {
+            "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+            "hidden": true,
+            "name": "Azure Cloud Shell",
+            "source": "Windows.Terminal.Azure"
+        }
+    ],
+
+    // Add custom color schemes to this array
+    "schemes": [
+          {
+            "name": "Glacier",
+            "black": "#2e343c",
+            "red": "#bd0f2f",
+            "green": "#35a770",
+            "yellow": "#fb9435",
+            "blue": "#1f5872",
+            "purple": "#bd2523",
+            "cyan": "#778397",
+            "white": "#ffffff",
+            "brightBlack": "#404a55",
+            "brightRed": "#bd0f2f",
+            "brightGreen": "#49e998",
+            "brightYellow": "#fddf6e",
+            "brightBlue": "#2a8bc1",
+            "brightPurple": "#ea4727",
+            "brightCyan": "#a0b6d3",
+            "brightWhite": "#ffffff",
+            "background": "#0c1115",
+            "foreground": "#ffffff"
+          }
+    ],
+
+    // Add any keybinding overrides to this array.
+    // To unbind a default keybinding, set the command to "unbound"
+    "keybindings": [
+        { "command": "copy", "keys": ["ctrl+c"] },
+        { "command": "paste", "keys": ["ctrl+v"] },
+        { "command": "newTab", "keys": ["ctrl+t"] },
+        { "command": "closeTab", "keys": ["ctrl+w"] }
+    ]
+}
